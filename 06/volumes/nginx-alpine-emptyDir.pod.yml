@@ -3,10 +3,13 @@ kind: Pod
 metadata:
   name: nginx-alpine-volume
 spec: 
+  volumes:  # the volume is created here
+  - name: html 
+    emptyDir: {}  # lifecycle tied to Pod
   containers: 
   - name: nginx 
     image: nginx:alpine 
-    volumeMounts: 
+    volumeMounts:   # volume to be used by container, the declaration is inside the container. 
       - name: html 
         mountPath: /usr/share/nginx/html
         readOnly: true 
@@ -20,9 +23,7 @@ spec:
     volumeMounts: 
       - name: html 
         mountPath: /html 
-  volumes: 
-  - name: html 
-    emptyDir: {} #lifecycle tied to Pod
-    
+
+
 # kubectl apply -f nginx-alpine-emptyDir.pod.yml
 # kubectl port-forward nginx-alpine-volume 8080:80

@@ -1,4 +1,4 @@
-#### Using a StorageClass, PersistentVolume, PersistentVolueClaim, and ConfigMap
+# Using a StorageClass, PersistentVolume, PersistentVolueClaim, and ConfigMap
 
 This example shows different types of storage options that can be used. Because a local Kubernetes is running (with a single Node), we'll
 only use the local-storage option, however in cloud scenarios the SC/PVC could be modififed as appropriate for the cloud provider's storage options.
